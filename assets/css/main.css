@@ -177,7 +177,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(255, 255, 255, 0);
+  --background-color: rgba(0, 0, 0, 0);
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
@@ -202,6 +202,20 @@ h6 {
   font-weight: 700;
   color: var(--heading-color);
 }
+/* ===== Fix Logo size + position (RTL) ===== */
+.header .logo img{
+  max-height: 90px !important;   /* كان 36px */
+  width: auto !important;
+  margin-right: 0 !important;    /* لا نبي فراغ يمين لأنه RTL */
+  margin-left: 14px;             /* لو فيه نص/شي بعده */
+  object-fit: contain;
+}
+
+/* لو تبغى اللوقو أقصى اليمين داخل الهيدر */
+.header .logo{
+  margin-left: auto;             /* يدزّه لليمين في flex */
+}
+
 
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
@@ -4699,7 +4713,212 @@ section,
   color: #fff !important;
 }
 
+/* ================================
+   Header RTL Layout (Desktop)
+   Logo right + Nav center + CTA left
+   ================================ */
+@media (min-width: 1200px) {
 
+  /* توزيع العناصر 3 مناطق */
+  .header .container-fluid.container-xl{
+    display: grid !important;
+    grid-template-columns: auto 1fr auto; /* Logo | Nav | CTA */
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* اللوقو (يمين) */
+  .header .logo{
+    justify-self: end;         /* أقصى اليمين */
+    width: auto;
+    height: auto;
+    margin: 0 !important;
+  }
+
+  /* تكبير logo-dark.png */
+  .header .logo img.logo-dark{
+    display: block;
+    width: 450px;              /* 👈 كبرها هنا */
+    height: auto;
+    max-height: 90px;          /* يمنعها تكبر زيادة وتكسر الهيدر */
+    object-fit: contain;
+  }
+
+  /* لو عندك logo-light، خله مخفي لو ما تحتاجه */
+  .header .logo img.logo-light{
+    display: none;
+  }
+
+  /* القائمة وسط */
+  .header #navmenu{
+    justify-self: center;
+  }
+
+  /* CTA يسار */
+  .header .btn-getstarted{
+    justify-self: start;       /* أقصى اليسار */
+    margin: 0 !important;
+    white-space: nowrap;
+  }
+
+  /* تضبيط مسافات الروابط عشان ما تتزاحم */
+  .navmenu a,
+  .navmenu a:focus{
+    padding: 18px 12px;
+    font-size: 15px;
+  }
+}
+
+/* ===== Final polish for Header ===== */
+@media (min-width: 1200px){
+
+  /* شدّ الهيدر وخفف ارتفاعه */
+  #header.header{
+    padding: 6px 0 !important;
+  }
+
+  /* خفف تباعد الثلاث أعمدة */
+  #header .container-fluid.container-xl{
+    gap: 18px !important;
+  }
+
+  /* ضبط اللوقو (أحيانًا كبير زيادة) */
+  #header .logo img{
+    max-height: 78px !important; /* جرّب 72 إذا تبي أنحف */
+  }
+
+  /* القائمة: خفف المسافات وخليها على نفس مستوى العناصر */
+  #header #navmenu > ul{
+    gap: 14px !important;
+    align-items: center !important;
+  }
+
+  #header #navmenu a{
+    padding: 8px 6px !important;
+    font-size: 14.5px !important;
+    line-height: 1 !important;
+  }
+
+  /* زر CTA: نفس ارتفاع الروابط */
+  #header .btn-getstarted{
+    padding: 9px 20px !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+  }
+}
+
+/* شفافية خفيفة للهيدر فوق الفيديو (تعطي فخامة + وضوح) */
+.scrolled #header.header{
+  background: #0b0b0b !important;
+}
+
+@media (min-width: 1200px){
+  /* حجم وروح نصوص القائمة */
+  #header #navmenu a{
+    font-size: 17px !important;     /* كبّر النص */
+    padding: 9px 9px !important;  /* مسافة حول النص */
+    line-height: 1 !important;    /* توازن الارتفاع */
+    font-weight: 600 !important;    /* أو 500 إذا تبيه أخف */
+  }
+
+  /* المسافة بين عناصر القائمة نفسها */
+  #header #navmenu > ul{
+    gap: 18px !important;           /* فرق بين الروابط */
+  }
+
+  /* السهم حق الدروب داون */
+  #header #navmenu a i{
+    font-size: 12px !important;
+    margin-right: 6px !important;   /* لأن RTL */
+  }
+}
+
+
+.about .description-text{
+  line-height: 2.1;
+  max-width: 520px;
+}
+
+/* Hide floating badge on mobile */
+@media (max-width: 576px){
+  #about .floating-badge{
+    display: none !important;
+  }
+}
+/* =========================
+   About Mobile Typography Fix
+   ========================= */
+@media (max-width: 576px){
+
+  /* مسافة آمنة حول محتوى النص */
+  #about .content{
+    padding: 18px 12px 0;
+    text-align: center;
+  }
+
+  /* العنوان */
+  #about .section-heading{
+    font-size: 1.55rem !important;   /* كان كبير */
+    line-height: 1.45 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* الفقرة الأولى (Lead) */
+  #about .lead-text{
+    font-size: 1.02rem !important;
+    line-height: 1.95 !important;
+    margin: 0 auto 14px !important;
+    max-width: 34ch;                 /* أهم سطر: يضبط عرض القراءة */
+    color: rgba(255,255,255,0.88) !important;
+  }
+
+  /* الفقرة الثانية */
+  #about .description-text{
+    font-size: .98rem !important;
+    line-height: 1.95 !important;
+    margin: 0 auto 18px !important;
+    max-width: 36ch;
+    color: rgba(255,255,255,0.78) !important;
+  }
+
+  /* لو عندك نقاط/إحصائيات تحت */
+  #about .stats-grid{
+    gap: 16px !important;
+    margin-top: 10px;
+  }
+
+  /* CTA تحت */
+  #about .cta-section{
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 576px){
+  #about .lead-text{
+    max-width: 30ch;
+  }
+}
+
+@media (max-width: 576px){
+  #about .description-text{
+    margin-top: 6px;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 576px){
+  #about .description-text{
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 576px){
+  #about .section-heading{
+    margin-top: 10px;
+  }
+}
 
 /*--------------------------------------------------------------
 # Starter Section Section
