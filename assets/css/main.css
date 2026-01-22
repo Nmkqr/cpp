@@ -725,41 +725,6 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
 .scroll-top {
@@ -4919,6 +4884,869 @@ section,
     margin-top: 10px;
   }
 }
+
+/* ===== Preloader with Logo ===== */
+#preloader{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0b0b; /* فحمي */
+}
+
+#preloader .preloader-logo{
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  animation: preloaderPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes preloaderPulse{
+  0%,100%{ transform: scale(1); opacity: .85; }
+  50%{ transform: scale(1.03); opacity: 1; }
+}
+
+/* =========================================================
+   Start Project (Condit-like) — works with your current HTML
+   Put at the END of assets/css/main.css
+   ========================================================= */
+
+/* مسافات عامة */
+#start-project.section{
+  padding: 70px 0;
+}
+#start-project .container{
+  max-width: 980px;
+}
+
+/* العناوين */
+#start-project h2{
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+#start-project h3{
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--heading-color);
+}
+#start-project p{
+  line-height: 1.9;
+}
+
+/* نص muted يعتمد على الثيم */
+#start-project .text-muted{
+  color: color-mix(in srgb, var(--default-color), transparent 40%) !important;
+}
+
+/* خطوط HR مثل Condit */
+#start-project hr.my-4{
+  border: 0 !important;
+  height: 1px !important;
+  background: color-mix(in srgb, var(--default-color), transparent 82%) !important;
+  opacity: 1 !important;
+  margin: 18px auto 28px !important;
+}
+
+/* ===== Type Buttons (Condit boxes) ===== */
+#start-project .typebar{
+  gap: 14px !important;
+}
+
+/* زر */
+#start-project .type-btn{
+  border: 2px solid var(--accent-color) !important;
+  border-radius: 0 !important;             /* مربع */
+  background: transparent !important;
+  color: var(--default-color) !important;  /* لأن الثيم عندك داكن */
+  font-weight: 900 !important;
+  padding: 22px 14px !important;
+  letter-spacing: .01em;
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+}
+
+/* Hover */
+#start-project .type-btn:hover{
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%) !important;
+}
+
+/* Active */
+#start-project .type-btn.is-active{
+  background: var(--accent-color) !important;
+  color: var(--contrast-color) !important;
+}
+
+/* جوال */
+@media (max-width: 992px){
+  #start-project .typebar{
+    gap: 12px !important;
+  }
+  #start-project .type-btn{
+    padding: 18px 12px !important;
+  }
+}
+
+/* ===== Form fields ===== */
+#start-project .form-control,
+#start-project .form-select{
+  background: var(--surface-color) !important;
+  color: var(--default-color) !important;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%) !important;
+  border-radius: 0 !important;               /* مربع */
+  padding: 18px 16px !important;
+  box-shadow: none !important;
+  font-size: 15px !important;
+}
+
+/* placeholder */
+#start-project .form-control::placeholder{
+  color: color-mix(in srgb, var(--default-color), transparent 55%) !important;
+}
+
+/* Focus */
+#start-project .form-control:focus,
+#start-project .form-select:focus{
+  border-color: color-mix(in srgb, var(--accent-color), transparent 35%) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 85%) !important;
+}
+
+/* ===== Radio cards (نوع الجناح) ===== */
+/* أنت حاط border + rounded-3 في HTML — نخليها Condit: مربع */
+#start-project label.border{
+  border-color: color-mix(in srgb, var(--default-color), transparent 82%) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  transition: background .15s ease, border-color .15s ease;
+}
+#start-project label.border:hover{
+  border-color: color-mix(in srgb, var(--accent-color), transparent 55%) !important;
+  background: color-mix(in srgb, var(--accent-color), transparent 92%) !important;
+}
+
+/* تحسين شكل الـ radio */
+#start-project input[type="radio"]{
+  accent-color: var(--accent-color);
+  margin-top: 4px;
+}
+
+/* ===== Checkboxes list ===== */
+#start-project input[type="checkbox"]{
+  accent-color: var(--accent-color);
+}
+
+/* ===== Divider X بين العرض والطول ===== */
+#start-project .col-md-1[style*="font-size:22px"]{
+  color: var(--accent-color) !important;
+}
+
+/* ===== Submit button ===== */
+#start-project button[type="submit"].btn-outline-danger{
+  border: 2px solid var(--accent-color) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--default-color) !important;
+  font-weight: 900 !important;
+  padding: 18px 38px !important;
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+  min-width: 320px !important;
+}
+
+/* Hover */
+#start-project button[type="submit"].btn-outline-danger:hover{
+  background: var(--accent-color) !important;
+  color: var(--contrast-color) !important;
+  transform: translateY(-1px);
+}
+
+/* جوال */
+@media (max-width: 576px){
+  #start-project button[type="submit"].btn-outline-danger{
+    min-width: 100% !important;
+  }
+}
+
+#startProjectFormWrapper{ display:none !important; }
+#startProjectFormWrapper.is-visible{ display:block !important; }
+
+@media (max-width: 992px){
+  #start-project .typebar{
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* اخفاء اللفافة أول ما تفتح الصفحة */
+#startProjectFormWrapper{ display:none !important; }
+#startProjectFormWrapper.is-visible{ display:block !important; }
+
+/* اخفاء البانلز وإظهار المختار */
+.project-panel{ display:none !important; }
+.project-panel.is-visible{ display:block !important; }
+
+/* ===============================
+   Booth Type – Premium Selection
+================================ */
+
+.booth-type-group{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.booth-option{
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  padding: 18px 56px 18px 20px;
+  background: rgba(255,255,255,0.015);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  transition: all .2s ease;
+}
+
+/* hover */
+.booth-option:hover{
+  background: rgba(203,11,13,0.06);
+  border-color: rgba(203,11,13,0.6);
+  transform: translateY(-1px);
+}
+
+/* hide radio */
+.booth-option input{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* right red indicator (selected) */
+.booth-option::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: transparent;
+  border-radius: 0 10px 10px 0;
+  transition: background .2s ease;
+}
+
+/* radio circle + inner dot (clean) */
+.booth-option::after{
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 22px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.40);
+  background: transparent;                 /* بدون نقطة */
+  transition: all .2s ease;
+}
+
+/* عند التحديد: الدائرة تحمر + نقطة داخلها */
+.booth-option:has(input:checked)::after{
+  border-color: #cb0b0d;
+  background: radial-gradient(circle, #cb0b0d 0 40%, transparent 45% 100%);
+}
+
+
+/* content */
+.booth-content{
+  position: relative;
+}
+
+.booth-title{
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff; /* أبيض قوي */
+  margin-bottom: 6px;
+}
+
+.booth-desc{
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.75); /* رمادي أوضح */
+}
+
+/* selected */
+.booth-option:has(input:checked){
+  background: rgba(203,11,13,0.08);
+  border-color: #cb0b0d;
+  box-shadow: 0 0 0 3px rgba(203,11,13,0.15);
+}
+
+
+.booth-option:has(input:checked)::after{
+  border-color: #cb0b0d;
+}
+
+.booth-option:has(input:checked) .booth-content::before{
+  background: #cb0b0d;
+}
+
+/* mobile */
+@media (max-width: 768px){
+  .booth-option{
+    padding: 16px 52px 16px 16px;
+  }
+}
+
+/* Condit-like Booth Space */
+.booth-space{
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.booth-space__title{
+  font-weight: 800;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+
+.booth-space__hr{
+  height: 1px;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  margin: 18px 0 28px;
+}
+
+/* سؤال Yes/No */
+.assured__q{
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--heading-color);
+}
+
+.assured__choices{
+  display: inline-flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Radio style (circle) */
+.choice{
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+
+.choice input[type="radio"]{
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-color, #cb0b0d);
+  cursor: pointer;
+}
+
+/* سؤال المقاس */
+.size{
+  margin-top: 32px;
+}
+
+.size__q{
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--heading-color);
+}
+
+.size__row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.size__input{
+  max-width: 420px;
+  text-align: left; /* مثل الصورة */
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 0 !important; /* مربع مثل Condit */
+}
+
+.size__x{
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--accent-color, #cb0b0d);
+  line-height: 1;
+}
+
+/* Mobile */
+/* Mobile — خليها مثل الديسكتوب */
+@media (max-width: 768px){
+  .size__row{
+    flex-direction: row;     /* نفس الديسكتوب */
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+
+  .size__x{
+    display: inline-block;   /* رجّع الـ X */
+    font-size: 22px;         /* أصغر شوي عشان يناسب الجوال */
+  }
+
+  .size__input{
+    max-width: 260px;        /* عشان يدخلون جنب بعض */
+    width: 100%;
+  }
+}
+
+
+/* wrapper */
+.size__wrapper{
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* visible state */
+.size__wrapper.is-visible{
+  max-height: 200px; /* أكبر من المحتوى */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Services Grid ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  text-align: right;
+}
+
+/* الكرت */
+.services-grid label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.02);
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.services-grid label:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Checkbox */
+.services-grid input[type="checkbox"] {
+  accent-color: #caa24d; /* عدل اللون حسب الهوية */
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+/* النص */
+.services-grid .fw-bold {
+  font-size: 15px;
+}
+
+.services-grid .text-muted {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* الكرت الأخير بالمنتصف */
+.services-grid label:last-child {
+  grid-column: 1 / -1;
+  max-width: 60%;
+  justify-self: center;
+}
+
+/* ===== Mobile ===== */
+/* بدل 576 خله أصغر */
+@media (max-width: 420px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid label:last-child {
+    max-width: 100%;
+  }
+}
+
+/* الحالة العادية */
+.services-grid label {
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.02);
+  transition: all 0.25s ease;
+  border-radius: 14px; /* لو تبغاه نفس الكروت */
+}
+
+/* ✅ تأثير الماوس (Hover) — نفس شكل الأحمر */
+.services-grid label:hover {
+  border-color: #c1121f;
+  background: linear-gradient(
+    135deg,
+    rgba(193,18,31,0.15),
+    rgba(193,18,31,0.05)
+  );
+  box-shadow: 0 0 0 1px rgba(193,18,31,0.4),
+              0 0 18px rgba(193,18,31,0.25);
+}
+
+/* يوضح النص عند الهوفر */
+.services-grid label:hover .fw-bold {
+  color: #fff;
+}
+.services-grid label:hover .text-muted {
+  color: rgba(255,255,255,0.85);
+}
+
+/* عند الاختيار ✅ — يظل نفس التأثير حتى بدون هوفر */
+.services-grid label:has(input:checked) {
+  border-color: #c1121f;
+  background: linear-gradient(
+    135deg,
+    rgba(193,18,31,0.15),
+    rgba(193,18,31,0.05)
+  );
+  box-shadow: 0 0 0 1px rgba(193,18,31,0.4),
+              0 0 18px rgba(193,18,31,0.25);
+}
+
+/* النص لما يتفعل */
+.services-grid label:has(input:checked) .fw-bold {
+  color: #fff;
+}
+.services-grid label:has(input:checked) .text-muted {
+  color: rgba(255,255,255,0.85);
+}
+
+/* checkbox نفسه */
+.services-grid input[type="checkbox"] {
+  accent-color: #c1121f;
+}
+/* =======================
+   Budget Section – Inputs
+======================= */
+
+/* input الميزانية */
+input[name="budget"] {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+}
+
+input[name="budget"]::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+input[name="budget"]:hover {
+  border-color: rgba(193,18,31,0.5);
+}
+
+input[name="budget"]:focus {
+  outline: none;
+  border-color: #c1121f;
+  box-shadow: 0 0 0 1px rgba(193,18,31,0.45),
+              0 0 18px rgba(193,18,31,0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(193,18,31,0.12),
+    rgba(193,18,31,0.04)
+  );
+}
+
+
+/* =======================
+   Budget Section – Selects
+======================= */
+
+select.form-select-lg {
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* النص الافتراضي */
+select.form-select-lg option {
+  background: #111;
+  color: #fff;
+}
+
+/* hover */
+select.form-select-lg:hover {
+  border-color: rgba(193,18,31,0.5);
+}
+
+/* عند الفتح أو الاختيار */
+select.form-select-lg:focus,
+select.form-select-lg:has(option:checked:not([value=""])) {
+  outline: none;
+  border-color: #c1121f;
+  background: linear-gradient(
+    135deg,
+    rgba(193,18,31,0.12),
+    rgba(193,18,31,0.04)
+  );
+  box-shadow: 0 0 0 1px rgba(193,18,31,0.45),
+              0 0 18px rgba(193,18,31,0.25);
+}
+
+
+/* =======================
+   تحسين بسيط للجوال
+======================= */
+
+@media (max-width: 576px) {
+  input[name="budget"],
+  select.form-select-lg {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+}
+
+.form-select.form-select-lg{
+  border-radius:14px;
+  padding:18px 20px;
+  background: rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;
+}
+.form-select.form-select-lg:focus{
+  border-color: rgba(193,18,31,.55);
+  box-shadow: 0 0 0 1px rgba(193,18,31,.35);
+}
+
+/* ===== Premium look (نفس التلوين) ===== */
+
+/* INPUT */
+input[name="budget"]{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.15);
+  color:#fff;
+  padding:18px 20px;
+  border-radius:16px;                 /* أفخم شوي */
+  min-height:60px;
+  transition: all .25s ease;
+
+  /* إضافة فخامة بدون تغيير ألوان */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 10px 30px rgba(0,0,0,0.18);
+}
+
+input[name="budget"]::placeholder{
+  color: rgba(255,255,255,0.45);
+}
+
+input[name="budget"]:hover{
+  border-color: rgba(193,18,31,0.5);
+  transform: translateY(-1px);
+}
+
+input[name="budget"]:focus{
+  outline:none;
+  border-color:#c1121f;
+  background: linear-gradient(135deg, rgba(193,18,31,0.12), rgba(193,18,31,0.04));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 0 0 1px rgba(193,18,31,0.45),
+    0 18px 45px rgba(0,0,0,0.28);
+  transform: translateY(-1px);
+}
+
+
+/* SELECT (الصندوق فقط) */
+select.form-select.form-select-lg{
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.15);
+  color:#fff;
+  padding:18px 20px;
+  border-radius:16px;
+  min-height:60px;
+  cursor:pointer;
+  transition: all .25s ease;
+
+  /* فخامة */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 10px 30px rgba(0,0,0,0.18);
+
+  /* سهم نظيف بدون تغيير ألوان */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 54px; /* مكان السهم (RTL) */
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.65) 50%),
+    linear-gradient(135deg, rgba(255,255,255,0.65) 50%, transparent 50%);
+  background-position:
+    22px 50%,
+    16px 50%;
+  background-size: 7px 7px, 7px 7px;
+  background-repeat: no-repeat;
+}
+
+select.form-select.form-select-lg:hover{
+  border-color: rgba(193,18,31,0.5);
+  transform: translateY(-1px);
+}
+
+select.form-select.form-select-lg:focus{
+  outline:none;
+  border-color:#c1121f;
+  background: linear-gradient(135deg, rgba(193,18,31,0.12), rgba(193,18,31,0.04));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 0 0 1px rgba(193,18,31,0.45),
+    0 18px 45px rgba(0,0,0,0.28);
+  transform: translateY(-1px);
+}
+
+/* خيارات القائمة (وقت الفتح — نفس ألوانك) */
+select.form-select.form-select-lg option{
+  background:#111;
+  color:#fff;
+}
+
+/* موبايل */
+@media (max-width:576px){
+  input[name="budget"],
+  select.form-select.form-select-lg{
+    padding:16px 18px;
+    min-height:56px;
+    border-radius:14px;
+    font-size:15px;
+  }
+}
+
+/* ===== Pro Select (Premium Dropdown) ===== */
+.pro-select{ position:relative; width:100%; }
+
+.pro-select__btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+
+  padding:18px 20px;
+  min-height:60px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.15);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  color:#fff;
+  cursor:pointer;
+  transition: .25s ease;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 10px 30px rgba(0,0,0,.18);
+}
+
+.pro-select__btn:hover{
+  border-color: rgba(193,18,31,.45);
+  transform: translateY(-1px);
+}
+
+.pro-select.is-open .pro-select__btn{
+  border-color:#c1121f;
+  background: linear-gradient(135deg, rgba(193,18,31,.12), rgba(193,18,31,.04));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 0 0 1px rgba(193,18,31,.35),
+    0 18px 45px rgba(0,0,0,.28);
+  transform: translateY(-1px);
+}
+
+.pro-select.has-value .pro-select__btn{
+  border-color: rgba(193,18,31,.45);
+}
+
+.pro-select__text{ opacity:.95; }
+
+/* سهم نظيف */
+.pro-select__chev{
+  width:10px; height:10px;
+  border-right:2px solid rgba(255,255,255,.7);
+  border-bottom:2px solid rgba(255,255,255,.7);
+  transform: rotate(45deg);
+  transition: transform .2s ease;
+  margin-right: 6px;
+}
+.pro-select.is-open .pro-select__chev{
+  transform: rotate(225deg);
+}
+
+/* القائمة */
+.pro-select__menu{
+  position:absolute;
+  left:0; right:0;
+  top: calc(100% + 10px);
+  background:#0f0f0f;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:16px;
+  padding:8px;
+  box-shadow: 0 22px 55px rgba(0,0,0,.6);
+  display:none;
+  z-index: 9999;
+}
+
+.pro-select.is-open .pro-select__menu{ display:block; }
+
+.pro-select__opt{
+  width:100%;
+  text-align:right;
+  padding:12px 12px;
+  border-radius:12px;
+  border:none;
+  background: transparent;
+  color:#fff;
+  cursor:pointer;
+  transition:.15s ease;
+}
+
+.pro-select__opt:hover{
+  background: rgba(255,255,255,.06);
+}
+
+.pro-select__opt.is-active{
+  outline: 1px solid rgba(193,18,31,.45);
+  background: rgba(193,18,31,.10);
+}
+
+/* موبايل */
+@media (max-width:576px){
+  .pro-select__btn{ min-height:56px; padding:16px 18px; border-radius:14px; }
+}
+
+
+
+/* ===== Optional: لو تبي نفس Condit أن الفورم ما يبان إلا بعد الضغط =====
+   (إذا طبقتها لازم JS يضيف كلاس "is-visible" على الفورم/Panel)
+.project-panel{ display:none; }
+.project-panel.is-visible{ display:block; }
+*/
+
 
 /*--------------------------------------------------------------
 # Starter Section Section
