@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Quote - iConstruction Bootstrap Template</title>
+  <title>ابدأ مشروعك - الطاقم المحترف</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;700;900&family=Raleway:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,323 +27,699 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: iConstruction
-  * Template URL: https://bootstrapmade.com/iconstruction-bootstrap-construction-template/
-  * Updated: Jul 27 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- ✅ CSS صغير ضروري للتبديل -->
+  <style>
+    #startProjectFormWrapper { display: none !important; }
+    #startProjectFormWrapper.is-visible { display: block !important; }
+    #startProjectFormWrapper .project-panel { display: none !important; }
+    #startProjectFormWrapper .project-panel.is-visible { display: block !important; }
+
+    @media (max-width: 992px){
+      #start-project .typebar { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+  </style>
 </head>
 
 <body class="quote-page">
 
+  <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">iConstruction</h1>
+        <img src="assets/img/logo-dark.png" alt="">
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="index.html" class="active">الرئيسية</a></li>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="services.html">خدماتنا</a></li>
+          <li><a href="projects.html">معرض الأعمال</a></li>
+          <li><a href="team.html">فريق العمل</a></li>
+
+          <li class="dropdown">
+            <a href="#"><span>قائمة منسدلة</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="service-details.html">Service Details</a></li>
-              <li><a href="project-details.html">Project Details</a></li>
-              <li><a href="quote.html" class="active">Quote Form</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="privacy.html">Privacy</a></li>
-              <li><a href="404.html">404</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li><a href="#">خيار 1</a></li>
+              <li class="dropdown">
+                <a href="#"><span>قائمة فرعية</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
+                  <li><a href="#">عنصر 1</a></li>
+                  <li><a href="#">عنصر 2</a></li>
+                  <li><a href="#">عنصر 3</a></li>
+                  <li><a href="#">عنصر 4</a></li>
+                  <li><a href="#">عنصر 5</a></li>
                 </ul>
               </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><a href="#">خيار 2</a></li>
+              <li><a href="#">خيار 3</a></li>
+              <li><a href="#">خيار 4</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+
+          <li><a href="contact.html">تواصل معنا</a></li>
         </ul>
+
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
-
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">اطلب عرض سعر</a>
     </div>
   </header>
 
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/construction/showcase-2.webp);">
+    <div class="page-title dark-background" data-aos="fade"
+      style="background-image: url(assets/img/construction/showcase-2.webp);">
       <div class="container position-relative">
-        <h1>Quote</h1>
-        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <h1>ابدأ مشروعك</h1>
+        <p>اختر نوع مشروعك وعبّ البيانات الأساسية — ونرجع لك بعرض مناسب بسرعة.</p>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Quote</li>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li class="current">ابدأ مشروعك</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
+    </div>
+    <!-- End Page Title -->
 
-    <!-- Quote Section -->
-    <section id="quote" class="quote section">
-
+    <!-- Start Project Section -->
+    <section id="start-project" class="section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row justify-content-center">
-          <div class="col-lg-11">
-            <div class="quote-container">
-              <div class="row">
-                <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
-                  <div class="quote-content">
-                    <h2>Transform Your Vision Into Reality</h2>
-                    <p>Experience construction excellence with our dedicated team. We bring precision, innovation, and uncompromising quality to every project, ensuring your dreams are built to last.</p>
+        <!-- Intro -->
+        <div class="text-center mb-5">
+<h2 class="mb-3 fw-bold">تبدأ رحلة التنفيذ من هنا</h2>
 
-                    <div class="quote-benefits">
-                      <div class="benefit-item">
-                        <div class="benefit-icon">
-                          <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <div class="benefit-content">
-                          <h4>Expert Planning</h4>
-                          <p>Comprehensive project analysis and strategic planning</p>
-                        </div>
-                      </div>
+<p class="text-muted" style="max-width:760px;margin:0 auto;line-height:1.9;">
+  سعداء ببدء مشروعك معنا! اختر نوع مشروعك واملأ النموذج المناسب،
+  وسيتواصل معك الفريق المختص لإعداد تصور مبدئي وعرض سعر يناسب احتياجك.
+</p>
 
-                      <div class="benefit-item">
-                        <div class="benefit-icon">
-                          <i class="bi bi-shield-fill-check"></i>
-                        </div>
-                        <div class="benefit-content">
-                          <h4>Quality Assurance</h4>
-                          <p>Rigorous quality control at every construction phase</p>
-                        </div>
-                      </div>
+<div class="mt-4 text-muted" style="max-width:760px;margin:0 auto;line-height:1.9;">
+  <strong>لست متأكدًا من الخيار المناسب؟</strong><br>
+  استخدم نموذج الطلب العام أو تواصل معنا عبر البريد
+  <a href="mailto:info@yourdomain.com" class="text-danger fw-semibold">
+    info@yourdomain.com
+  </a>
+  وسنعود إليك في أقرب وقت. شكرًا لك!
+</div>
 
-                      <div class="benefit-item">
-                        <div class="benefit-icon">
-                          <i class="bi bi-hourglass-split"></i>
-                        </div>
-                        <div class="benefit-content">
-                          <h4>Timely Delivery</h4>
-                          <p>Commitment to deadlines with efficient project management</p>
-                        </div>
-                      </div>
-                    </div>
+<h5 class="mt-5 fw-bold">اختر نوع مشروعك</h5>
+        </div>
 
-                    <div class="contact-info">
-                      <div class="contact-detail">
-                        <i class="bi bi-telephone-fill"></i>
-                        <span>+1 (555) 942-8765</span>
-                      </div>
-                      <div class="contact-detail">
-                        <i class="bi bi-envelope-fill"></i>
-                        <span>estimates@constructpro.com</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <!-- Type Buttons -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-10">
+            <div class="d-grid gap-3 typebar" style="grid-template-columns: repeat(4, 1fr);">
+              <button type="button" class="btn btn-outline-danger py-3 fw-bold type-btn"
+                data-target="#panel-exhibit" aria-pressed="false">جناح معرض</button>
 
-                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
-                  <div class="quote-form">
-                    <div class="form-intro">
-                      <h3>Get Your Custom Quote</h3>
-                      <p>Share your project details and receive a comprehensive estimate tailored to your specific needs.</p>
-                    </div>
+              <button type="button" class="btn btn-outline-danger py-3 fw-bold type-btn"
+                data-target="#panel-install" aria-pressed="false">تركيبات</button>
 
-                    <form action="forms/quote.php" method="post" class="php-email-form">
-                      <div class="form-grid">
-                        <div class="form-field">
-                          <label for="fullname">Full Name</label>
-                          <input type="text" name="name" id="fullname" placeholder="Enter your full name" required="">
-                        </div>
+              <button type="button" class="btn btn-outline-danger py-3 fw-bold type-btn"
+                data-target="#panel-event" aria-pressed="false">فعالية مؤقتة</button>
 
-                        <div class="form-field">
-                          <label for="email">Email Address</label>
-                          <input type="email" name="email" id="email" placeholder="your.email@example.com" required="">
-                        </div>
-
-                        <div class="form-field">
-                          <label for="phone">Phone Number</label>
-                          <input type="tel" name="phone" id="phone" placeholder="+1 (555) 000-0000" required="">
-                        </div>
-
-                        <div class="form-field">
-                          <label for="project-type">Project Category</label>
-                          <select name="type" id="project-type" required="">
-                            <option value="">Choose project type</option>
-                            <option value="custom-home">Custom Home Construction</option>
-                            <option value="commercial">Commercial Development</option>
-                            <option value="renovation">Complete Renovation</option>
-                            <option value="addition">Home Addition</option>
-                            <option value="industrial">Industrial Projects</option>
-                            <option value="consultation">Consultation Only</option>
-                          </select>
-                        </div>
-
-                        <div class="form-field">
-                          <label for="timeline">Expected Timeline</label>
-                          <select name="timeline" id="timeline" required="">
-                            <option value="">Select timeline</option>
-                            <option value="immediate">Immediate Start</option>
-                            <option value="2-4weeks">2-4 Weeks</option>
-                            <option value="1-3months">1-3 Months</option>
-                            <option value="6months">6+ Months</option>
-                            <option value="flexible">Flexible Timeline</option>
-                          </select>
-                        </div>
-
-                        <div class="form-field">
-                          <label for="budget">Project Budget</label>
-                          <input type="text" name="budget" id="budget" placeholder="Budget range (optional)">
-                        </div>
-                      </div>
-
-                      <div class="form-field full-width">
-                        <label for="description">Project Description</label>
-                        <textarea name="message" id="description" rows="4" placeholder="Describe your project vision, requirements, materials preferences, and any specific details that will help us provide an accurate estimate..." required=""></textarea>
-                      </div>
-
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">Thank you! Your quote request has been received. Our team will review your project and contact you within 24 hours.</div>
-
-                      <button type="submit" class="submit-btn">
-                        <span>Request Detailed Quote</span>
-                        <i class="bi bi-arrow-right"></i>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+              <button type="button" class="btn btn-outline-danger py-3 fw-bold type-btn"
+                data-target="#panel-other" aria-pressed="false">طلب خاص</button>
             </div>
           </div>
         </div>
 
+        <!-- WRAPPER -->
+        <div id="startProjectFormWrapper" class="start-form">
+
+          <!-- ========== PANEL: Exhibit ========= -->
+          <div id="panel-exhibit" class="project-panel">
+
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+
+                <div class="text-center mb-2">
+                  <h3 class="fw-bold mb-1">طلب جناح معرض</h3>
+                  <p class="text-muted mb-0">تشرفنا! شاركنا معلوماتك الأساسية وتفاصيل الجناح.</p>
+                </div>
+                <hr class="my-4">
+
+                <form id="exhibitForm" autocomplete="on">
+
+                  <!-- Contact -->
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="text" name="name" placeholder="الاسم *" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="text" name="company" placeholder="الشركة *" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="email" name="email" placeholder="البريد الإلكتروني *" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="tel" name="phone" placeholder="رقم الجوال *" required>
+                    </div>
+                  </div>
+
+                  <!-- Show Details -->
+                  <div class="text-center mt-5 mb-2">
+                    <h3 class="fw-bold mb-1">تفاصيل المعرض / الحدث</h3>
+                    <p class="text-muted mb-0">وش اسم الحدث ومتى موعده؟</p>
+                  </div>
+                  <hr class="my-4">
+
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <input class="form-control form-control-lg" type="text" name="show_name" placeholder="اسم المعرض / الحدث">
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="text" name="city" placeholder="المدينة">
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="date" name="date">
+                    </div>
+                  </div>
+
+                  <!-- Booth Type -->
+                  <div class="text-center mt-5 mb-2">
+                    <h3 class="fw-bold mb-1">نوع الجناح المطلوب</h3>
+                    <p class="text-muted mb-0">اختر الخيار الأقرب لاحتياجك.</p>
+                  </div>
+                  <hr class="my-4">
+
+<div class="d-flex flex-column gap-3 booth-type-group" style="text-align:right;">
+
+  <label class="booth-option">
+    <input type="radio" name="booth_type" value="custom" required>
+    <div class="booth-content">
+      <div class="booth-title">
+        تنفيذ خاص — تصميم مخصص بالكامل
+      </div>
+      <div class="booth-desc">
+        مثل بناء منزل خاص لك كامل الحرية فيه.
+        يتم تصميم وتصنيع الجناح داخل ورش الطاقم المحترف،
+        ويتولى فريقنا المتخصص تركيبه وتجهيزه داخل المعرض.
+      </div>
+    </div>
+  </label>
+
+  <label class="booth-option">
+    <input type="radio" name="booth_type" value="rental">
+    <div class="booth-content">
+      <div class="booth-title">
+        تأجير — حل اقتصادي
+      </div>
+      <div class="booth-desc">
+        خيار مناسب إذا ما حاب تلتزم بالشراء.
+        التأجير يعتبر حلًا اقتصاديًا إذا كنت تشارك
+        في ثلاثة معارض أو أقل خلال السنة.
+      </div>
+    </div>
+  </label>
+
+  <label class="booth-option">
+    <input type="radio" name="booth_type" value="hybrid">
+    <div class="booth-content">
+      <div class="booth-title">
+        هجين — تأجير مع لمسات خاصة
+      </div>
+      <div class="booth-desc">
+        يجمع بين مرونة التأجير ولمسات تصميم مخصصة،
+        ليمنح علامتك حضورًا أقوى دون تكلفة التنفيذ الكامل.
+      </div>
+    </div>
+  </label>
+
+  <label class="booth-option">
+    <input type="radio" name="booth_type" value="not_sure">
+    <div class="booth-content">
+      <div class="booth-title">
+        غير متأكد بعد — أحتاج استشارة
+      </div>
+      <div class="booth-desc">
+        لست متأكدًا من الخيار المناسب؟
+        يسعدنا التحدث معك وفهم احتياجك واقتراح الحل الأنسب.
+      </div>
+    </div>
+  </label>
+
+</div>
+
+<!-- ================= Booth Space ================= -->
+<div class="booth-space mt-5">
+
+  <div class="text-center mb-2">
+    <h3 class="fw-bold mb-1">مساحة الجناح</h3>
+    <p class="text-muted mb-0">هل تم حجز المساحة؟ وإذا نعم عطنا القياس.</p>
+  </div>
+  <hr class="my-4">
+
+  <!-- سؤال نعم / لا -->
+  <div class="assured text-center">
+    <div class="assured__q fw-bold mb-3">هل تم حجز المساحة؟</div>
+<label class="choice">
+  <input type="radio" name="space_secured" value="yes">
+  <span>نعم</span>
+</label>
+
+<label class="choice">
+  <input type="radio" name="space_secured" value="no">
+  <span>لا</span>
+</label>
+
+  </div>
+
+  <!-- القياس (مخفي مبدئيًا) -->
+  <div class="size__wrapper mt-4" id="boothSize">
+    <div class="size__label text-center fw-bold mb-3">إذا نعم، ما هو مقاس الجناح؟</div>
+
+    <div class="size__row">
+      <input class="form-control form-control-lg size__input"
+             type="text" name="length"
+             placeholder="الطول">
+
+      <div class="size__x">×</div>
+
+      <input class="form-control form-control-lg size__input"
+             type="text" name="width"
+             placeholder="العرض">
+    </div>
+  </div>
+
+</div>
+<!-- ================= /Booth Space ================= -->
+
+
+
+                  <!-- Services -->
+                  <div class="text-center mt-5 mb-2">
+                    <h3 class="fw-bold mb-1">الخدمات المطلوبة</h3>
+                    <p class="text-muted mb-0">بجانب الجناح، وش تحتاج بعد؟</p>
+                  </div>
+                  <hr class="my-4">
+
+                    <div class="services-grid">
+                    <label class="d-flex gap-2 align-items-start">
+                      <input type="checkbox" name="services" value="onsite" style="margin-top:4px;">
+                      <div>
+                        <div class="fw-bold">خدمات الموقع</div>
+                        <div class="text-muted" style="font-size:14px;">إنترنت / كهرباء / ضيافة / تنسيق</div>
+                      </div>
+                    </label>
+
+                    <label class="d-flex gap-2 align-items-start">
+                      <input type="checkbox" name="services" value="graphics" style="margin-top:4px;">
+                      <div>
+                        <div class="fw-bold">الجرافيك والطباعة</div>
+                        <div class="text-muted" style="font-size:14px;">تجهيز ملفات + طباعة + تركيب</div>
+                      </div>
+                    </label>
+
+                    <label class="d-flex gap-2 align-items-start">
+                      <input type="checkbox" name="services" value="av" style="margin-top:4px;">
+                      <div>
+                        <div class="fw-bold">صوتيات ومرئيات (A/V)</div>
+                        <div class="text-muted" style="font-size:14px;">شاشات / إضاءة / صوت</div>
+                      </div>
+                    </label>
+
+                    <label class="d-flex gap-2 align-items-start">
+                      <input type="checkbox" name="services" value="shipping" style="margin-top:4px;">
+                      <div>
+                        <div class="fw-bold">نقل وشحن</div>
+                        <div class="text-muted" style="font-size:14px;">توصيل قبل/بعد المعرض</div>
+                      </div>
+                    </label>
+
+                    <label class="d-flex gap-2 align-items-start">
+                      <input type="checkbox" name="services" value="labor" style="margin-top:4px;">
+                      <div>
+                        <div class="fw-bold">عمالة تركيب وفك</div>
+                        <div class="text-muted" style="font-size:14px;">فريق ميداني للتركيب والفك</div>
+                      </div>
+                    </label>
+                  </div>
+
+                  <!-- Budget -->
+<div class="text-center mt-5 mb-2">
+  <h3 class="fw-bold mb-1">الميزانية</h3>
+  <p class="text-muted mb-0">رقم أو نطاق يساعدنا نضبط الحل المناسب.</p>
+</div>
+<hr class="my-4">
+
+<div class="row g-3">
+  <div class="col-12">
+    <input class="form-control form-control-lg" type="text" name="budget"
+      placeholder="ميزانية تقريبية ">
+  </div>
+
+  <!-- budget_cover (custom select) -->
+  <div class="col-md-6">
+    <div class="pro-select" data-name="budget_cover">
+      <button type="button" class="pro-select__btn" aria-haspopup="listbox" aria-expanded="false">
+        <span class="pro-select__text">الميزانية تشمل؟ (اختياري)</span>
+        <span class="pro-select__chev"></span>
+      </button>
+
+      <div class="pro-select__menu" role="listbox">
+        <button type="button" class="pro-select__opt" data-value="build">تصميم + تصنيع + تركيب</button>
+        <button type="button" class="pro-select__opt" data-value="build_av">تشمل الصوتيات/المرئيات</button>
+        <button type="button" class="pro-select__opt" data-value="all">تشمل كل شيء (شحن/تشغيل/خدمات)</button>
       </div>
 
-    </section><!-- /Quote Section -->
+      <!-- القيمة اللي تنرسل في الفورم -->
+      <input type="hidden" name="budget_cover" value="">
+    </div>
+  </div>
+
+  <!-- urgency (custom select) -->
+  <div class="col-md-6">
+    <div class="pro-select" data-name="urgency">
+      <button type="button" class="pro-select__btn" aria-haspopup="listbox" aria-expanded="false">
+        <span class="pro-select__text">مدى الاستعجال (اختياري)</span>
+        <span class="pro-select__chev"></span>
+      </button>
+
+      <div class="pro-select__menu" role="listbox">
+        <button type="button" class="pro-select__opt" data-value="urgent">مستعجل</button>
+        <button type="button" class="pro-select__opt" data-value="normal">عادي</button>
+        <button type="button" class="pro-select__opt" data-value="planning">لسه تخطيط</button>
+      </div>
+
+      <input type="hidden" name="urgency" value="">
+    </div>
+  </div>
+</div>
+
+
+                  <!-- Notes -->
+                  <div class="text-center mt-5 mb-2">
+                    <h3 class="fw-bold mb-1">معلومات إضافية</h3>
+                    <p class="text-muted mb-0">أي ملاحظات تساعدنا نفهم احتياجك.</p>
+                  </div>
+                  <hr class="my-4">
+
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <textarea class="form-control form-control-lg" name="notes" rows="6"
+                        placeholder="مثال: نحتاج مخزن صغير داخل الجناح + شاشة LED + استقبال..."></textarea>
+                    </div>
+                  </div>
+
+                  <!-- Submit -->
+                  <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-outline-danger fw-bold px-5 py-3"
+                      style="border-width:2px;min-width:280px;">
+                      إرسال الطلب
+                    </button>
+
+                    <p class="text-muted mt-3" style="font-size:12px;max-width:760px;margin:0 auto;line-height:1.7;">
+                      بإرسال الطلب، سيتم استخدام بياناتك للتواصل بخصوص المشروع فقط.
+                    </p>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== PANEL: Installations ========= -->
+          <div id="panel-install" class="project-panel">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+
+                <div class="text-center mb-2">
+                  <h3 class="fw-bold mb-1">تفاصيل طلب التركيب</h3>
+                  <p class="text-muted mb-0">شاركنا تفاصيل الموقع ونوع التركيب المطلوب.</p>
+                </div>
+                <hr class="my-4">
+
+                <form id="installForm" autocomplete="on">
+
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <select class="form-select form-select-lg" name="install_type" required>
+                        <option value="" selected disabled>نوع التركيب *</option>
+                        <option value="booth">تركيب جناح / بوث</option>
+                        <option value="graphics">تركيب لوحات / جرافيك</option>
+                        <option value="structure">تركيب هياكل / منصات</option>
+                        <option value="branding">هوية بصرية داخل الموقع</option>
+                        <option value="other">تركيب آخر</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6">
+                      <input type="text" class="form-control form-control-lg" name="location"
+                        placeholder="اسم الموقع / المعرض *" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control form-control-lg" name="city"
+                        placeholder="المدينة *" required>
+                    </div>
+
+                    <div class="col-md-6">
+                      <input type="date" class="form-control form-control-lg" name="install_date" required>
+                    </div>
+                    <div class="col-md-6">
+                      <select class="form-select form-select-lg" name="urgency">
+                        <option value="" selected>مدى الاستعجال (اختياري)</option>
+                        <option value="urgent">مستعجل</option>
+                        <option value="normal">عادي</option>
+                        <option value="flexible">مرن</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12">
+                      <textarea class="form-control form-control-lg" rows="6" name="notes"
+                        placeholder="أي تفاصيل أو اشتراطات خاصة بالموقع أو المعرض..."></textarea>
+                    </div>
+                  </div>
+
+                  <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-outline-danger fw-bold px-5 py-3"
+                      style="border-width:2px;min-width:280px;">
+                      إرسال الطلب
+                    </button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== PANEL: Event ========= -->
+          <div id="panel-event" class="project-panel">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+
+                <div class="text-center mb-2">
+                  <h3 class="fw-bold mb-1">تفاصيل الفعالية المؤقتة</h3>
+                  <p class="text-muted mb-0">عدد الحضور، المدة، ومتطلبات التجهيز.</p>
+                </div>
+                <hr class="my-4">
+
+                <form id="eventForm" autocomplete="on">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="text" name="name" placeholder="الاسم *" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="tel" name="phone" placeholder="رقم الجوال *" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="text" name="attendees" placeholder="عدد الحضور (اختياري)">
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="text" name="duration" placeholder="مدة الفعالية (اختياري)">
+                    </div>
+                    <div class="col-12">
+                      <textarea class="form-control form-control-lg" rows="6" name="notes"
+                        placeholder="تفاصيل الفعالية (منصة/LED/صوت/إضاءة/تشغيل)..."></textarea>
+                    </div>
+                  </div>
+
+                  <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-outline-danger fw-bold px-5 py-3"
+                      style="border-width:2px;min-width:280px;">
+                      إرسال الطلب
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== PANEL: Other ========= -->
+          <div id="panel-other" class="project-panel">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+
+                <div class="text-center mb-2">
+                  <h3 class="fw-bold mb-1">طلب خاص</h3>
+                  <p class="text-muted mb-0">اكتب طلبك وسنرجع لك.</p>
+                </div>
+                <hr class="my-4">
+
+                <form id="otherForm" autocomplete="on">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="text" name="name" placeholder="الاسم *" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control form-control-lg" type="tel" name="phone" placeholder="رقم الجوال *" required>
+                    </div>
+                    <div class="col-12">
+                      <textarea class="form-control form-control-lg" rows="7" name="notes"
+                        placeholder="اكتب تفاصيل طلبك هنا..."></textarea>
+                    </div>
+                  </div>
+
+                  <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-outline-danger fw-bold px-5 py-3"
+                      style="border-width:2px;min-width:280px;">
+                      إرسال الطلب
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /WRAPPER -->
+
+      </div>
+    </section>
+    <!-- /Start Project Section -->
 
   </main>
 
   <footer id="footer" class="footer dark-background">
 
-    <div class="container">
-      <div class="row gy-5">
+  <div class="container">
+    <div class="row gy-5">
 
-        <div class="col-lg-4">
-          <div class="footer-brand">
-            <a href="index.html" class="logo d-flex align-items-center mb-3">
-              <span class="sitename">iConstruction</span>
+      <!-- Brand / About -->
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <a href="index.html" class="logo d-flex align-items-center mb-3">
+            <img src="assets/img/logo-dark.png" alt="Professional Crew Logo" style="max-height:60px;">
+          </a>
+
+          <p class="tagline">
+            نصمّم. ننفّذ. نصنع الأثر — حلول متكاملة للمعارض والمؤتمرات والفعاليات بإنتاج داخلي وتحكم دقيق بالتفاصيل.
+          </p>
+
+          <div class="footer-contact mt-3">
+            <p class="mb-2"><i class="bi bi-geo-alt"></i> الرياض — دبي</p>
+            <p class="mb-2">
+              <i class="bi bi-telephone"></i>
+              <a href="tel:+966544996689">+966 54 499 6689</a>
+            </p>
+            <p class="mb-2">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:info@crewpro.com.sa">info@crewpro.com.sa</a>
+            </p>
+            <p class="mb-0">
+              <i class="bi bi-globe"></i>
+              <a href="https://www.crewpro.com.sa/" target="_blank" rel="noopener">www.crewpro.com.sa</a>
+            </p>
+          </div>
+
+          <div class="social-links mt-4">
+            <!-- عدّل الروابط حسب حساباتكم -->
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://wa.me/message/VHRNE4RKXEEQB1" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i>
             </a>
-            <p class="tagline">Innovating the digital landscape with elegant solutions and timeless design.</p>
-
-            <div class="social-links mt-4">
-              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-              <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-              <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
-            </div>
           </div>
         </div>
-
-        <div class="col-lg-6">
-          <div class="footer-links-grid">
-            <div class="row">
-              <div class="col-6 col-md-4">
-                <h5>Company</h5>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Our Team</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Newsroom</a></li>
-                </ul>
-              </div>
-              <div class="col-6 col-md-4">
-                <h5>Services</h5>
-                <ul class="list-unstyled">
-                  <li><a href="#">Web Development</a></li>
-                  <li><a href="#">UI/UX Design</a></li>
-                  <li><a href="#">Digital Strategy</a></li>
-                  <li><a href="#">Branding</a></li>
-                </ul>
-              </div>
-              <div class="col-6 col-md-4">
-                <h5>Support</h5>
-                <ul class="list-unstyled">
-                  <li><a href="#">Help Center</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Terms of Service</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2">
-          <div class="footer-cta">
-            <h5>Let's Connect</h5>
-            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
-          </div>
-        </div>
-
       </div>
-    </div>
 
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="footer-bottom-content">
-              <p class="mb-0">© <span class="sitename">Myebsite</span>. All rights reserved.</p>
-              <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
+      <!-- Links -->
+      <div class="col-lg-6">
+        <div class="footer-links-grid">
+          <div class="row">
+
+            <div class="col-6 col-md-4">
+              <h5>الشركة</h5>
+              <ul class="list-unstyled">
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="team.html">فريق العمل</a></li>
+                <li><a href="projects.html">معرض الأعمال</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+              </ul>
             </div>
+
+            <div class="col-6 col-md-4">
+              <h5>خدماتنا</h5>
+              <ul class="list-unstyled">
+                <li><a href="#services">تصميم وتنفيذ أجنحة المعارض</a></li>
+                <li><a href="#services">تنظيم المؤتمرات والفعاليات</a></li>
+                <li><a href="#services">التجهيزات السمعية والبصرية</a></li>
+                <li><a href="#services">الطباعة الكبيرة مع التركيب</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <h5>الدعم</h5>
+              <ul class="list-unstyled">
+                <li><a href="quote.html">اطلب عرض سعر</a></li>
+                <li><a href="terms.html">الشروط والأحكام</a></li>
+                <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                <li><a href="404.html">مساعدة</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="col-lg-2">
+        <div class="footer-cta">
+          <h5>ابدأ مشروعك</h5>
+          <a href="quote.html" class="btn btn-outline">اطلب عرض سعر</a>
+          <a href="contact.html" class="btn btn-outline mt-2">تواصل معنا</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="footer-bottom-content">
+            <p class="mb-0">© <span class="sitename">Professional Crew</span>. جميع الحقوق محفوظة.</p>
+
+            <!-- إذا تبغى تحذف Credits قلّي، وبأعطيك نسخة نظيفة -->
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  </footer>
+</footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -352,6 +728,8 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <!-- ✅ Start Project Tabs -->
+  <script src="assets/js/start-project-tabs.js"></script>
 
+</body>
 </html>
