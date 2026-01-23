@@ -5739,6 +5739,141 @@ select.form-select.form-select-lg option{
   .pro-select__btn{ min-height:56px; padding:16px 18px; border-radius:14px; }
 }
 
+/* خلي الإيميل والرقم أبيض داخل كروت التواصل */
+.contact-card .contact-text a{
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+/* hover بسيط بدون أحمر */
+.contact-card .contact-text a:hover{
+  color: rgba(255,255,255,0.85);
+}
+
+/* =========================================================
+   About (Condit-style) — Dark Centered Fix
+   ========================================================= */
+.about.about-condit{
+  background: var(--background-color) !important;
+  padding: 140px 0 110px !important;
+}
+
+/* اجبار التوسيط مثل Condit */
+.about.about-condit .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* يخلي كل شيء بالنص */
+  text-align: center;       /* محاذاة النص */
+}
+
+/* العنوان */
+.about.about-condit .about-condit__title{
+  color: #fff !important;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 auto 18px !important;
+  max-width: 36ch;
+}
+
+/* النص */
+.about.about-condit .about-condit__text{
+  color: rgba(255,255,255,.74) !important;
+  opacity: 1 !important;
+  line-height: 2.05;
+  font-weight: 400;
+  margin: 0 auto 16px !important;
+  max-width: 88ch;
+}
+
+/* الروابط */
+.about.about-condit .about-condit__links{
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 26px;
+}
+
+.about.about-condit .about-condit__link{
+  color: var(--accent-color) !important;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: .2s ease;
+}
+
+.about.about-condit .about-condit__link:hover{
+  border-bottom-color: var(--accent-color);
+  opacity: .95;
+}
+
+/* موبايل */
+@media (max-width: 576px){
+  .about.about-condit{ padding: 115px 0 85px !important; }
+  .about.about-condit .about-condit__title{ max-width: 22ch; }
+  .about.about-condit .about-condit__text{
+    max-width: 92vw;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .about.about-condit .about-condit__links{ gap: 16px 22px; }
+}
+
+/* === About Logo Above Title === */
+.about.about-condit .about-condit__logo{
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.about.about-condit .about-condit__logo img{
+  max-width: 250px;
+  height: auto;
+  display: block;
+}
+
+/* موبايل */
+@media (max-width: 576px){
+  .about.about-condit .about-condit__logo img{
+    max-width: 170px;
+  }
+}
+/* توسيط أزرار القطاعات (Clients Tabs) */
+.clients-tabs{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  gap: 14px;
+  margin: 30px auto 0;
+  padding: 0;
+}
+
+/* تأكيد أن كل زر ما يسحب اتجاه */
+.clients-tabs .nav-item{
+  float: none !important;
+}
+
+/* تحسين شكل الأزرار */
+.clients-tabs .nav-link{
+  min-width: 140px;
+  text-align: center;
+  border-radius: 999px;
+}
+
+.clients-grid {
+  gap: 32px 24px; /* بدل 20px أو أقل */
+}
+
+.clients-grid img {
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.clients-grid img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
 
 
 /* ===== Optional: لو تبي نفس Condit أن الفورم ما يبان إلا بعد الضغط =====
