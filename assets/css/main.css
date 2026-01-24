@@ -4799,6 +4799,7 @@ section,
 }
 
 
+
 .about .description-text{
   line-height: 2.1;
   max-width: 520px;
@@ -5873,6 +5874,202 @@ select.form-select.form-select-lg option{
 .clients-grid img:hover {
   transform: scale(1.05);
   opacity: 1;
+}
+
+/* =========================
+   About Stats Grid (Mobile Only) - Fix stacking
+   ========================= */
+@media (max-width: 576px){
+
+  /* شبكة الإحصائيات */
+  #about .stats-grid{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+    margin: 14px 0 10px !important;
+  }
+
+  /* كل عنصر */
+  #about .stats-grid .stat-item{
+    text-align: center;
+    padding: 6px 4px;
+  }
+
+  /* العنصر الثالث (98%) تحت بالنص */
+  #about .stats-grid .stat-item:nth-child(3){
+    grid-column: 1 / -1 !important;
+    margin-top: 2px;
+  }
+
+  /* الرقم */
+  #about .stats-grid .stat-number{
+    font-size: 32px !important;
+    line-height: 1 !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* الوصف */
+  #about .stats-grid .stat-label{
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    opacity: .9;
+  }
+}
+
+/* CTA spacing fix */
+#about .cta-section{
+  margin-top: 28px;   /* نزول الزر */
+}
+
+/* 📱 بالجوال نزوله أكثر شوي */
+@media (max-width: 576px){
+  #about .cta-section{
+    margin-top: 36px;
+  }
+}
+/* Service link: white text → red on hover */
+#services .service-more{
+  color: #ffffff !important;              /* أبيض */
+  background: transparent !important;     /* بدون خلفية */
+  border-color: rgba(255,255,255,0.25);   /* إطار خفيف */
+}
+
+/* Hover */
+#services .service-more:hover{
+  color: var(--accent-color) !important;  /* أحمر */
+  background: transparent !important;
+  border-color: var(--accent-color);      /* الإطار يصير أحمر */
+}
+/* نزّل زر الخدمة لأسفل الكرت */
+#services .service-item{
+  display: flex;
+  flex-direction: column;
+}
+
+#services .service-more{
+  margin-top: auto;   /* هذا هو السحر */
+}
+
+/* Video wrapper inside project cards */
+.projects .project-image.video-wrapper{
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.projects .project-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play Button */
+.video-play-btn{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.video-play-btn:hover{
+  background: rgba(203, 11, 13, .95);
+  transform: scale(1.08);
+}
+
+/* Hide button while playing */
+.video-wrapper.playing .video-play-btn{
+  display: none;
+}
+
+/* ====== Remove overlay animation & text on project video ====== */
+
+/* إخفاء أي طبقة فوق الفيديو */
+.project-image .project-overlay {
+  display: none !important;
+}
+
+/* إلغاء أي تدرج أو خلفية */
+.project-image::before,
+.project-image::after {
+  display: none !important;
+}
+
+/* منع أي حركة hover */
+.project-card:hover .project-image img,
+.project-card:hover .project-image video {
+  transform: none !important;
+}
+
+/* تأكيد نظافة الفيديو */
+.project-video {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-slideshow,
+.project-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.project-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-slideshow img.active {
+  opacity: 1;
+}
+
+.project-video {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-slideshow{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.project-slideshow .slot{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition: opacity 1.8s linear;
+}
+
+.project-slideshow .slot.is-visible{
+  opacity:1;
 }
 
 
