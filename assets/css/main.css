@@ -5951,21 +5951,31 @@ select.form-select.form-select-lg option{
   margin-top: auto;   /* هذا هو السحر */
 }
 
-/* Video wrapper inside project cards */
+/* ================================
+   Video wrapper inside project cards
+================================ */
 .projects .project-image.video-wrapper{
   position: relative;
   overflow: hidden;
   height: 250px;
 }
 
+/* ================================
+   Video
+================================ */
 .projects .project-video{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0;
+  transition: opacity .5s ease;
+  filter: none !important;
 }
 
-/* Play Button */
+/* ================================
+   Play Button
+================================ */
 .video-play-btn{
   position: absolute;
   inset: 0;
@@ -5995,81 +6005,83 @@ select.form-select.form-select-lg option{
   display: none;
 }
 
-/* ====== Remove overlay animation & text on project video ====== */
-
-/* إخفاء أي طبقة فوق الفيديو */
-.project-image .project-overlay {
+/* ================================
+   Remove overlays & gradients
+================================ */
+.project-image .project-overlay{
   display: none !important;
 }
 
-/* إلغاء أي تدرج أو خلفية */
 .project-image::before,
-.project-image::after {
+.project-image::after{
   display: none !important;
 }
 
-/* منع أي حركة hover */
-.project-card:hover .project-image img,
-.project-card:hover .project-image video {
-  transform: none !important;
-}
-
-/* تأكيد نظافة الفيديو */
-.project-video {
-  filter: none !important;
-  opacity: 1 !important;
-}
-
-.project-image {
+/* ================================
+   Slideshow base
+================================ */
+.project-image{
   position: relative;
   overflow: hidden;
 }
 
 .project-slideshow,
-.project-video {
+.project-video{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
 
-.project-slideshow img {
+.project-slideshow{
+  overflow: hidden;
+}
+
+.project-slideshow .slot{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.project-slideshow img.active {
-  opacity: 1;
-}
-
-.project-video {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.project-slideshow{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-}
-
-.project-slideshow .slot{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition: opacity 1.8s linear;
+  transition: opacity 1.8s linear, transform .6s ease;
+  transform: scale(1);
 }
 
 .project-slideshow .slot.is-visible{
-  opacity:1;
+  opacity: 1;
+}
+
+/* ================================
+   ✅ Zoom Effect (احترافي)
+================================ */
+.project-card .project-image img,
+.project-card .project-image video,
+.project-card .project-image .project-slideshow .slot{
+  transform: scale(1);
+  transition: transform .6s ease;
+  will-change: transform;
+}
+
+/* Hover zoom */
+.project-card:hover .project-image img,
+.project-card:hover .project-image video,
+.project-card:hover .project-image .project-slideshow .slot{
+  transform: scale(1.06);
+}
+
+/* ================================
+   ❌ Disable zoom while video playing
+================================ */
+.video-wrapper.playing img,
+.video-wrapper.playing video,
+.video-wrapper.playing .project-slideshow .slot{
+  transform: none !important;
+}
+
+/* Show video when playing */
+.video-wrapper.playing .project-video{
+  opacity: 1;
 }
 
 
