@@ -2240,121 +2240,6 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Team Section
---------------------------------------------------------------*/
-.team .team-member {
-  background-color: var(--surface-color);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-.team .team-member:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.team .team-member .member-img {
-  position: relative;
-  overflow: hidden;
-}
-
-.team .team-member .member-img img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-}
-
-.team .team-member .member-img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--heading-color), transparent 20%) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.team .team-member .member-info {
-  padding: 32px 28px;
-  text-align: center;
-}
-
-.team .team-member .member-info h4 {
-  font-size: 22px;
-  font-weight: 300;
-  margin: 0 0 8px 0;
-  color: var(--heading-color);
-  line-height: 1.3;
-}
-
-.team .team-member .member-info span {
-  display: block;
-  font-size: 14px;
-  color: var(--accent-color);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-.team .team-member .member-info p {
-  font-size: 14px;
-  line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 24px;
-}
-
-.team .team-member .member-info .social {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.team .team-member .member-info .social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  border-radius: 50%;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-}
-
-.team .team-member .member-info .social a:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  transform: translateY(-3px);
-}
-
-.team .team-member:hover .member-img img {
-  transform: scale(1.08);
-}
-
-.team .team-member:hover .member-img::after {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .team .team-member .member-info {
-    padding: 24px 20px;
-  }
-
-  .team .team-member .member-info h4 {
-    font-size: 20px;
-  }
-
-  .team .team-member .member-img img {
-    height: 250px;
-  }
-}
 
 /*--------------------------------------------------------------
 # Call To Action Section
@@ -4798,6 +4683,27 @@ section,
   }
 }
 
+/* ===========================
+   MOBILE LOGO SIZE (RTL)
+   =========================== */
+@media (max-width: 991px){
+
+  /* حجم اللوقو في الجوال */
+  #header .logo img,
+  .header .logo img,
+  .header .logo img.logo-dark{
+    max-height: 75px !important;  /* 👈 هنا تتحكم بالحجم */
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* لو تحس الهيدر طويل/قصير */
+  #header.header{
+    padding: 5px 0 !important;   /* 👈 تقدر تخففه */
+  }
+
+}
+
 
 
 .about .description-text{
@@ -6083,8 +5989,391 @@ select.form-select.form-select-lg option{
 .video-wrapper.playing .project-video{
   opacity: 1;
 }
+/* ===========================
+   Team Slider (CrewPro Style) - FIXED (No Crop)
+   =========================== */
+.team .team-slider{
+  position: relative;
+  padding: 10px 0 30px;
+}
+
+.team .team-slide{
+  border-radius: 16px;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.team .team-media{
+  position: relative;
+  height: 640px; /* كان 520: خففناه عشان ما يبان القص */
+  background: #f3f3f3; /* خلفية نظيفة للصور اللي فيها مساحة */
+  border: 2px solid rgba(203, 11, 13, .55);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+
+/* ✅ أهم تعديل هنا */
+.team .team-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* يعرض الصورة كاملة */
+  object-position: center;   /* توسيط */
+  padding: 18px;             /* تنفّس داخل الإطار */
+  background: transparent;   /* نخلي الخلفية من الأب */
+  filter: grayscale(100%) contrast(1.05);
+  transform: none;           /* لا تكبير */
+  transition: filter .35s ease, opacity .35s ease;
+}
+
+/* Overlay text */
+.team .team-overlay{
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 22px 22px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.25), rgba(0,0,0,0));
+}
+
+.team .team-name{
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.team .team-role{
+  margin: 0 0 14px;
+  color: rgba(255,255,255,.85);
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Social buttons */
+.team .team-social{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.team .team-social a{
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: #fff;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.team .team-social a:hover{
+  background: rgba(203,11,13,.92);
+  border-color: rgba(203,11,13,.92);
+  transform: translateY(-2px);
+}
+
+/* Hover / Active */
+.team .team-slide:hover .team-media img{
+  filter: grayscale(0%);  /* يصير ملون */
+  opacity: 1;             /* بدون تكبير */
+}
+
+.team .swiper-slide-active .team-media{
+  border-color: #cb0b0d;
+}
+
+/* Arrows */
+.team .team-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 5;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.team .team-nav:hover{
+  background: rgba(203,11,13,.92);
+  border-color: rgba(203,11,13,.92);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.team .team-prev{ left: 10px; }
+.team .team-next{ right: 10px; }
+
+/* Pagination dots */
+.team .team-pagination{
+  margin-top: 18px;
+}
+.team .swiper-pagination-bullet{
+  width: 9px;
+  height: 9px;
+  opacity: .35;
+}
+.team .swiper-pagination-bullet-active{
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 992px){
+  .team .team-media{ height: 420px; }
+  .team .team-name{ font-size: 24px; }
+  .team .team-media img{ padding: 14px; }
+}
+@media (max-width: 576px){
+  .team .team-media{ height: 400px; }
+  .team .team-media img{ padding: 12px; }
+  .team .team-nav{ display: none; } /* بالجوال سوايب */
+}
+
+/* ===== Force 3 cards per view (Team) ===== */
+.team .team-slider{
+  width: 100%;
+}
+
+.team .team-slider .swiper-wrapper{
+  align-items: stretch;
+}
+
+.team .team-slider .swiper-slide{
+  height: auto;
+}
+
+.team .team-slide{
+  height: 100%;
+}
+
+/* مهم: يخلي الكرت ما يصير عريض مرة */
+@media (min-width: 1200px){
+  .team .team-slider .swiper-slide{
+    width: calc((100% - 48px) / 3) !important; /* 3 كروت + مسافات */
+  }
+}
+
+.team .team-media{
+  background: #0b0b0b; /* أسود نظيف */
+}
+
+.team .team-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* تملا الكرت */
+  object-position: center;
+  padding: 0;            /* ❌ لا مسافات */
+  background: none;
+  filter: grayscale(100%) contrast(1.05);
+}
+.team .team-media{
+  border: none;
+}
+.team .team-media{
+  background: transparent;
+  box-shadow: 0 30px 80px rgba(0,0,0,.55);
+}
+
+.team .team-name{
+  color: #cb0b0d;
+  font-weight: 800;
+}
+
+.team .team-role{
+  color: rgba(255,255,255,.75);
+}
+
+.team .team-media{
+  position: relative;
+  overflow: hidden;
+}
+
+/* التدرّج الأسود */
+.team .team-media::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.75) 0%,
+    rgba(0,0,0,.45) 25%,
+    rgba(0,0,0,.15) 45%,
+    rgba(0,0,0,0) 65%
+  );
+  pointer-events: none;
+}
+.team .team-overlay{
+  position: absolute;
+  z-index: 2;
+}.team .team-media img{
+  position: relative;
+  z-index: 1;
+}
+
+.team .team-media img{
+  filter: grayscale(100%) contrast(1.05) drop-shadow(0 18px 30px rgba(0,0,0,.65));
+}
+
+.team .team-name{
+  color: #cb0b0d;
+  text-shadow: 0 8px 18px rgba(0,0,0,.55);
+}
+
+.team .team-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.85) 0%,
+    rgba(0,0,0,.35) 35%,
+    rgba(0,0,0,0) 60%
+  );
+  pointer-events:none;
+}
+/* ===========================
+   Team Image Hover Zoom
+   =========================== */
+
+/* نحضر الكرت للحركة */
+.team .team-media{
+  transition: transform .45s cubic-bezier(.2,.8,.2,1);
+}
+
+/* الصورة نفسها */
+.team .team-media img{
+  transition: transform .6s cubic-bezier(.2,.8,.2,1),
+              filter .4s ease;
+  transform-origin: center bottom; /* يكبر من تحت عشان ما يقص الرأس */
+}
+
+/* عند المرور بالماوس */
+.team .team-slide:hover .team-media{
+  transform: translateY(-6px); /* رفع خفيف للكرت */
+}
+
+.team .team-slide:hover .team-media img{
+  transform: scale(1.08); /* الزوم */
+  filter: grayscale(0%) contrast(1.12)
+          drop-shadow(0 30px 45px rgba(0,0,0,.85));
+}
+
+.team-name {
+  margin-top: 8px;
+}
+/* ===========================
+   SWIPER PAGINATION – FIX
+   =========================== */
+
+.team .swiper-pagination-bullet{
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.25);
+  opacity: 1;
+  transition: all .3s ease;
+  margin: 0 6px !important;
+}
+
+.team .swiper-pagination-bullet-active{
+  background: #cb0b0d; /* أحمر البراند */
+  transform: scale(1.4);
+  box-shadow: 0 0 8px rgba(203,11,13,.6);
+}
+
+/* ===========================
+   TEAM – DESKTOP (KEEP AS BEFORE)
+   =========================== */
+
+.team .team-media{
+  position: relative;
+  overflow: hidden;           /* ✅ يمنع الفراغ والسواد */
+  border-radius: 22px;        /* ✅ رجّع شكل الكرت */
+}
+
+/* الصورة في الديسكتوب */
+.team .team-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* ✅ يملا الكرت */
+  object-position: center top;
+  display: block;             /* ✅ يمنع فراغ أسفل الصورة */
+}
 
 
+/* ===========================
+   MOBILE ONLY (OVERRIDE)
+   =========================== */
+@media (max-width: 768px){
+
+  .team .team-media{
+    height: 480px;            /* ✅ للجوال فقط */
+    border-radius: 20px;
+  }
+
+  .team .team-media img{
+    object-fit: cover;
+    object-position: center top;
+    transform: none !important;
+  }
+
+}
+
+@media (min-width: 769px){
+  .team .team-media::after{
+    opacity: .25;                 /* خفيف جدًا */
+    transition: opacity .25s ease;
+  }
+
+  .team .team-slide:hover .team-media::after{
+    opacity: 0;                   /* يختفي وقت hover */
+  }
+}
+
+
+
+/* Section titles (all sections) */
+.section-title p {
+  font-size: 1.5rem;
+  line-height: 2;
+  max-width: 680px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ===========================
+   TEAM – PAGINATION SPACING FIX
+   =========================== */
+
+.team .team-pagination{
+  position: relative;
+  margin-top: 28px;     /* ⬅️ أبعدها عن الكروت */
+  padding-bottom: 8px;
+}
+
+.team .swiper-pagination-bullet{
+  margin: 0 8px !important;   /* مسافة بين النقاط */
+}
+
+/* ===========================
+   MOBILE LOGO SIZE CONTROL
+   =========================== */
+@media (max-width: 991px) {
+
+  #header .logo img {
+    max-height: 10px;   /* ⬅️ عدّل الرقم حسب ذوقك */
+    width: auto;
+  }
+
+}
+
+ 
 /* ===== Optional: لو تبي نفس Condit أن الفورم ما يبان إلا بعد الضغط =====
    (إذا طبقتها لازم JS يضيف كلاس "is-visible" على الفورم/Panel)
 .project-panel{ display:none; }
