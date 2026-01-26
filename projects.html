@@ -2,11 +2,14 @@
 <html lang="ar" dir="rtl">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Projects - iConstruction Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>معرض الأعمال | الطاقم المحترف لتنظيم المعارض والمؤتمرات</title>
+
+<meta name="description" content="استعرض أبرز أعمال الطاقم المحترف في تنظيم المعارض والمؤتمرات والفعاليات، مع حلول متكاملة تشمل التصنيع الداخلي، المسارح، شاشات LED، والتجارب التفاعلية.">
+
+<meta name="keywords" content="معرض الأعمال, الطاقم المحترف, تنظيم معارض, تنظيم مؤتمرات, فعاليات, مسارح, شاشات LED, تصنيع أجنحة, events, exhibitions, conferences">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -41,7 +44,7 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-    <a href="index.html" class="logo d-flex align-items-center me-auto">
+<a href="index.html" class="logo d-flex align-items-center">
       <img src="assets/img/logo-dark.png" alt="">
     </a>
 
@@ -69,19 +72,24 @@
 
 <main class="main">
 
-  <!-- Page Title -->
-  <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/construction/showcase-2.webp);">
-    <div class="container position-relative">
-      <h1>Projects</h1>
-      <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
-      <nav class="breadcrumbs">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li class="current">Projects</li>
-        </ol>
-      </nav>
-    </div>
-  </div><!-- End Page Title -->
+<!-- Page Title -->
+<div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/construction/showcase-2.webp);">
+  <div class="container position-relative">
+    <h1>معرض الأعمال</h1>
+    <p>
+      نستعرض هنا نخبة من مشاريعنا في المعارض والمؤتمرات والفعاليات الكبرى،
+      حيث يجتمع التصميم الإبداعي، التصنيع الداخلي، والتنفيذ الاحترافي
+      لصناعة تجارب استثنائية تترك أثراً لا يُنسى.
+    </p>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li class="current">معرض الأعمال</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- End Page Title -->
 
   <!-- Projects Section -->
   <section id="projects" class="projects section">
@@ -424,183 +432,6 @@
     </div>
 
   </section><!-- /Projects Section -->
-
-<script>
-(() => {
-  const cards = document.querySelectorAll('.project-card');
-
-  const preloadImage = (src) => new Promise((resolve) => {
-    if (!src) return resolve();
-    const img = new Image();
-    img.onload = resolve;
-    img.onerror = resolve;
-    img.src = src;
-  });
-
-  const stateMap = new WeakMap();
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const card = entry.target;
-      const st = stateMap.get(card);
-      if (!st) return;
-
-      if (entry.isIntersecting) {
-        if (!st.isPlayingVideo) st.start();
-      } else {
-        st.stop();
-      }
-    });
-  }, { threshold: 0.25 });
-
-  cards.forEach((card) => {
-    const wrapper = card.querySelector('.video-wrapper');
-    if (!wrapper) return;
-
-    const video = wrapper.querySelector('video');
-    const playBtn = wrapper.querySelector('.video-play-btn');
-
-    const slideshow = card.querySelector('.project-slideshow');
-    const listWrap = card.querySelector('.project-slides');
-
-    let sources = [];
-    let slotA, slotB;
-    let idx = 0;
-    let showingA = true;
-    let timer = null;
-    let isPlayingVideo = false;
-
-    // ✅ مهم: نخلي الفيديو ميوت افتراضيًا (بدون موسيقى)
-    if (video) {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-      // لو تبي كمان يخفي الصوت نهائيًا:
-      // video.volume = 0;
-    }
-
-    const stop = () => {
-      if (timer) clearInterval(timer);
-      timer = null;
-    };
-
-    const start = () => {
-      if (!slideshow || sources.length <= 1) return;
-      if (timer) return;
-      const interval = Number(slideshow.getAttribute('data-interval') || 4500);
-      timer = setInterval(next, interval);
-    };
-
-    const next = async () => {
-      const nextIdx = (idx + 1) % sources.length;
-      const nextSrc = sources[nextIdx];
-
-      await preloadImage(nextSrc);
-
-      const show = showingA ? slotB : slotA;
-      const hide = showingA ? slotA : slotB;
-
-      show.src = nextSrc;
-
-      requestAnimationFrame(() => {
-        show.classList.add('is-visible');
-        hide.classList.remove('is-visible');
-      });
-
-      idx = nextIdx;
-      showingA = !showingA;
-    };
-
-    if (slideshow && listWrap) {
-      sources = Array.from(listWrap.querySelectorAll('[data-src]'))
-        .map(el => el.getAttribute('data-src'))
-        .filter(Boolean);
-
-      slotA = slideshow.querySelector('.slot-a');
-      slotB = slideshow.querySelector('.slot-b');
-
-      if (sources.length && slotA && slotB) {
-        const fadeMs = Number(slideshow.getAttribute('data-fade') || 1800);
-        slotA.style.transitionDuration = fadeMs + 'ms';
-        slotB.style.transitionDuration = fadeMs + 'ms';
-
-        slotA.src = sources[0];
-        slotA.classList.add('is-visible');
-        slotB.classList.remove('is-visible');
-
-        if (sources[1]) preloadImage(sources[1]);
-      }
-    }
-
-    const st = {
-      start,
-      stop,
-      get isPlayingVideo() { return isPlayingVideo; },
-      set isPlayingVideo(v) { isPlayingVideo = v; },
-    };
-    stateMap.set(card, st);
-
-    io.observe(card);
-
-    /* ============================
-       VIDEO LOGIC (ميوت + لا يوقف مع السحب)
-    ============================ */
-    if (!video || !playBtn) return;
-
-    // ✅ منع restore أثناء السحب على الشريط
-    let seeking = false;
-    video.addEventListener('seeking', () => { seeking = true; });
-    video.addEventListener('seeked',  () => { seeking = false; });
-
-    playBtn.addEventListener('click', () => {
-      // وقف أي فيديو ثاني بدون تصفير الوقت
-      document.querySelectorAll('.video-wrapper').forEach(w => {
-        const v = w.querySelector('video');
-        if (!v || v === video) return;
-        v.pause();
-        v.removeAttribute('controls');
-        w.classList.remove('playing');
-        w.classList.remove('no-slideshow'); // احتياط
-      });
-
-      // وقف السلايدشو لهذا الكرت
-      st.stop();
-
-      // ✅ أخفِ السلايدشو وقت تشغيل الفيديو (عشان ما تطلع الحواف)
-      wrapper.classList.add('playing');
-
-      // ✅ شغّل الفيديو ميوت تلقائيًا
-      video.muted = true;
-      video.defaultMuted = true;
-
-      st.isPlayingVideo = true;
-      video.setAttribute('controls','controls');
-      video.play().catch(()=>{});
-    });
-
-    const restore = () => {
-      wrapper.classList.remove('playing');
-      video.removeAttribute('controls');
-      st.isPlayingVideo = false;
-
-      // رجّع السلايدشو لو الكرت ظاهر
-      const rect = card.getBoundingClientRect();
-      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-      if (inView) st.start();
-    };
-
-    // ✅ رجوع السلايدشو فقط عند انتهاء الفيديو
-    video.addEventListener('ended', restore);
-
-    // ✅ لا نسوي restore على pause (لأن السحب على الشريط يسبب pause لحظي)
-    video.addEventListener('pause', () => {
-      if (seeking) return;      // تجاهل أثناء السحب
-      if (video.ended) return;  // النهاية تُعالج فوق
-      // إذا تبي لو المستخدم ضغط pause يدويًا "يظل الفيديو واقف" بدون رجوع للسلايدشو → لا تسوي شيء هنا
-    });
-  });
-})();
-</script>
 
 
 </main>
