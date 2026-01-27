@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = btn.getAttribute("data-target");
         if (target) showPanel(target);
 
-        // Scroll
-        wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
   }
