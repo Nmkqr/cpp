@@ -6353,6 +6353,7 @@ select.form-select.form-select-lg option{
   margin: 0 8px !important;   /* مسافة بين النقاط */
 }
 
+
 /* ===========================
    MOBILE LOGO SIZE CONTROL
    =========================== */
@@ -6363,6 +6364,34 @@ select.form-select.form-select-lg option{
     width: auto;
   }
 
+}
+/* خلفية سوداء ناعمة خلف النص */
+.team .team-overlay{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 22px 22px 18px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.88),
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0)
+  );
+}
+
+.team .team-name{
+  color: #cb0b0d;
+  font-weight: 900;
+  font-size: 28px;
+  margin-bottom: 6px;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.85),
+    0 0 1px rgba(255,255,255,0.2);
 }
 
  /* ===========================
@@ -6520,6 +6549,386 @@ select.form-select.form-select-lg option{
   }
   .track-card{
     padding: 26px 18px;
+  }
+}
+
+
+/* Fix phone number direction in RTL */
+.phone-text{
+  direction: ltr;
+  unicode-bidi: embed;
+  display: inline-block;
+}
+
+.phone-text{
+  direction: ltr;
+  unicode-bidi: embed;
+  display: inline-block;
+}
+
+.phone-line{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* تحسين بصري */
+.phone-line a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.phone-line a:hover{
+  color: #25D366; /* لون واتس */
+}
+
+/* ===========================
+   Footer Pro (Global Layout)
+   =========================== */
+.footer.footer-pro{
+  padding: 64px 0 22px;
+}
+
+.footer-pro .footer-top{
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.footer-pro .footer-grid{
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr 1.15fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.footer-pro .footer-logo img{
+  max-height: 56px;
+  width: auto;
+  display: block;
+}
+
+.footer-pro .footer-desc{
+  margin: 14px 0 18px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.9;
+  max-width: 34ch;
+}
+
+.footer-pro .footer-title{
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.footer-pro .footer-links{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.footer-pro .footer-links a{
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  transition: .2s ease;
+}
+.footer-pro .footer-links a:hover{
+  color: #fff;
+  transform: translateX(-2px);
+}
+
+.footer-pro .footer-contact{
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.footer-pro .footer-item{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(255,255,255,.8);
+}
+.footer-pro .footer-item i{
+  color: rgba(255,255,255,.7);
+}
+.footer-pro .footer-item a{
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+}
+.footer-pro .footer-item a:hover{
+  color: #fff;
+}
+
+.footer-pro .ltr{
+  direction: ltr;
+  unicode-bidi: embed;
+  display: inline-block;
+}
+
+.footer-pro .footer-social{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.footer-pro .footer-social a{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: #fff;
+  transition: .2s ease;
+}
+.footer-pro .footer-social a:hover{
+  background: rgba(203,11,13,.95);
+  border-color: rgba(203,11,13,.95);
+  transform: translateY(-2px);
+}
+
+/* CTA button */
+.footer-pro .footer-cta-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #cb0b0d;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  width: fit-content;
+  transition: .2s ease;
+}
+.footer-pro .footer-cta-btn:hover{
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+/* bottom */
+.footer-pro .footer-bottom-pro{
+  padding-top: 18px;
+  text-align: center;
+  color: rgba(255,255,255,.55);
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 992px){
+  .footer-pro .footer-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+  .footer-pro .footer-desc{ max-width: 44ch; }
+}
+
+@media (max-width: 576px){
+  .footer-pro .footer-grid{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .footer-pro .footer-cta-btn{ width: 100%; }
+}
+/* ===========================
+   Footer Hover Red (FORCE)
+   ضعها آخر شيء في الملف
+   =========================== */
+
+/* روابط الفوتر */
+#footer.footer a{
+  transition: color .25s ease, opacity .25s ease, transform .25s ease;
+}
+#footer.footer a:hover{
+  color: #cb0b0d !important;
+  opacity: 1 !important;
+}
+
+/* أيقونات السوشيال (سواء social-links أو footer-social) */
+#footer.footer .social-links a,
+#footer.footer .footer-social a{
+  transition: background-color .25s ease, border-color .25s ease, transform .25s ease, color .25s ease !important;
+}
+#footer.footer .social-links a:hover,
+#footer.footer .footer-social a:hover{
+  background-color: #cb0b0d !important;
+  border-color: #cb0b0d !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* لو الأيقونة داخل i */
+#footer.footer .social-links a:hover i,
+#footer.footer .footer-social a:hover i{
+  color: #fff !important;
+}
+
+/* أزرار الفوتر */
+#footer.footer .btn-outline:hover,
+#footer.footer .footer-cta-btn:hover{
+  background: #cb0b0d !important;
+  border-color: #cb0b0d !important;
+  color: #fff !important;
+}
+
+/* تحسين: الايقونة داخل سطر التواصل تتحول أحمر */
+#footer.footer .footer-contact p:hover i,
+#footer.footer .footer-item:hover i{
+  color: #cb0b0d !important;
+}
+.footer-item i{
+  transition: color .25s ease;
+}
+
+.footer-item:hover i{
+  color: #cb0b0d;
+}
+/* ===========================
+   Footer Mobile – Center Style
+   =========================== */
+@media (max-width: 576px){
+
+  /* شبكة الفوتر */
+  .footer-pro .footer-grid{
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+
+  /* الشعار */
+  .footer-pro .footer-logo{
+    display: flex;
+    justify-content: center;
+  }
+
+  /* الوصف */
+  .footer-pro .footer-desc{
+    margin: 14px auto 18px;
+    max-width: 28ch;
+    line-height: 1.8;
+  }
+
+  /* زر CTA */
+  .footer-pro .footer-cta-btn{
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  /* إخفاء عناوين الأعمدة (الشركة / خدماتنا) */
+  .footer-pro .footer-title{
+    display: none;
+  }
+
+  /* روابط الأعمدة */
+  .footer-pro .footer-links{
+    justify-items: center;
+    gap: 8px;
+  }
+
+  /* قسم التواصل */
+  .footer-pro .footer-contact{
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-pro .footer-item{
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* الأرقام LTR */
+  .footer-pro .ltr{
+    font-weight: 600;
+  }
+
+  /* أيقونات السوشيال */
+  .footer-pro .footer-social{
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .footer-pro .footer-social a{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+
+  /* البوتوم */
+  .footer-pro .footer-bottom-pro{
+    font-size: 13px;
+    padding-top: 14px;
+  }
+}
+/* ===========================
+   Footer Mobile – Reduce Clutter
+   =========================== */
+@media (max-width: 576px){
+
+  /* نخفي أقسام الروابط بالكامل في الجوال */
+  #footer.footer-pro .footer-col:nth-child(2),
+  #footer.footer-pro .footer-col:nth-child(3){
+    display: none !important;
+  }
+
+  /* نخلي الوصف أقصر (سطرين) */
+  #footer.footer-pro .footer-desc{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 30ch;
+    margin-inline: auto;
+  }
+
+  /* نخلي التواصل مرتب ويبان */
+  #footer.footer-pro .footer-contact{
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  /* نخلي السوشيال تحت بمسافة */
+  #footer.footer-pro .footer-social{
+    margin-top: 14px;
+    justify-content: center;
+  }
+
+  /* نخلي زر CTA أعرض وأوضح */
+  #footer.footer-pro .footer-cta-btn{
+    width: 100%;
+    max-width: 360px;
+    margin: 10px auto 0;
+  }
+
+  /* نخلي الايميل أصغر شوي عشان ما يزحم */
+  #footer.footer-pro .footer-contact a{
+    font-size: 14px;
+  }
+}
+/* ===========================
+   Footer Mobile – Full Text
+   =========================== */
+@media (max-width: 576px){
+
+  #footer.footer-pro .footer-desc{
+    display: block;          /* إلغاء القص */
+    overflow: visible;
+    max-width: 34ch;         /* عرض مريح */
+    margin: 14px auto 18px;
+    line-height: 1.9;
+    text-align: center;
+    color: rgba(255,255,255,.9);
+  }
+
+}@media (max-width: 576px){
+  #footer.footer-pro .footer-desc{
+    font-size: 15.5px;
+  }
+}
+@media (max-width: 576px){
+  #footer.footer-pro .footer-cta-btn{
+    margin-top: 14px;
   }
 }
 
