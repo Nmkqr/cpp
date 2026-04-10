@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // ============================================
   // 4. إرسال النماذج إلى n8n (Form Submission to n8n)
   // ============================================
-  const WEBHOOK_URL = "https://n8n.nmkqr.org/webhook-test/5d0e1ee1-eee5-440d-8c27-f222a04e9a4e";
+  const WEBHOOK_URL = "https://n8n.nmkqr.org/webhook/5d0e1ee1-eee5-440d-8c27-f222a04e9a4e";
 
   function showToast(msg, ok = true) {
     let el = document.getElementById("cp-toast");
